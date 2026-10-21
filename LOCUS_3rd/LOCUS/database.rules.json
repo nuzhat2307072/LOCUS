@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "hazards": {
+      ".read": "auth != null",
+      "$hazardId": {
+        ".write": "auth != null && (!data.exists() || data.child('reporterUid').val() === auth.uid)",
+        ".validate": "newData.hasChildren(['type', 'lat', 'lon', 'createdAt', 'reporterUid'])"
+      }
+    }
+  }
+}

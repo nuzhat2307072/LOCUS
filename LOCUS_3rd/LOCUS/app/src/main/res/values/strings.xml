@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LOCUS</string>
+    <string name="tagline">Navigate smart. Help your community.</string>
+
+    <!-- Auth -->
+    <string name="login_title">Welcome back</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Full name</string>
+    <string name="hint_confirm">Confirm password</string>
+    <string name="action_login">Log in</string>
+    <string name="action_register">Create account</string>
+    <string name="action_biometric">Unlock with fingerprint or screen lock</string>
+    <string name="biometric_title">Unlock LOCUS</string>
+    <string name="biometric_subtitle">Confirm it is you</string>
+    <string name="link_switch_account">Not you? Use another account</string>
+    <string name="login_title_new">Sign in to LOCUS</string>
+    <string name="welcome_back_user">Welcome back, %1$s</string>
+    <string name="unlock_subtitle">LOCUS is locked. Enter your password to continue.</string>
+    <string name="password_rules">At least 8 characters, with letters and numbers</string>
+    <string name="logout_title">Log out?</string>
+    <string name="logout_message">You will have to sign in again with your password.</string>
+    <string name="menu_lock">Lock app</string>
+    <string name="signed_in_as">Signed in as %1$s</string>
+    <string name="link_register">New here? Create an account</string>
+    <string name="link_forgot">Forgot password?</string>
+    <string name="register_title">Create your account</string>
+    <string name="firebase_missing">Cloud sync is off (google-services.json missing). Your account is stored securely on this phone only.</string>
+
+    <!-- Dashboard -->
+    <string name="title_dashboard">LOCUS</string>
+    <string name="greeting">Hello, %1$s</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline - showing saved data</string>
+    <string name="card_explore">Explore Places</string>
+    <string name="card_explore_sub">Search anything - find who offers it near you</string>
+    <string name="card_navigate">Smart Navigation</string>
+    <string name="card_navigate_sub">Fastest route on real roads, hazards and automatic rerouting</string>
+    <string name="card_community">Community Assistance</string>
+    <string name="card_community_sub">Blood donation, volunteers, disaster aid</string>
+    <string name="card_saved">Saved Places</string>
+    <string name="card_saved_sub">Your favourites (SQLite + Content Provider)</string>
+    <string name="menu_lifecycle">Lifecycle log</string>
+    <string name="menu_network_lab">Network lab (REST)</string>
+    <string name="menu_logout">Log out</string>
+
+    <!-- Explore -->
+    <string name="title_explore">Explore Places</string>
+    <string name="hint_search_places">Search anything: pizza, plumber, laptop repair...</string>
+    <string name="explore_hint">Type what you need - a food, a shop, a service - and LOCUS shows the places near you that offer it.</string>
+    <string name="explore_nothing">Nothing found for \"%1$s\" nearby. Try another word, or a more general one (for example \"clinic\" instead of a doctor\'s name).</string>
+    <string name="explore_clear">Clear</string>
+    <string name="explore_recent">Recent searches</string>
+    <string name="area_gps">Near your location</string>
+    <string name="area_last">Near your last known position</string>
+    <string name="area_default">Near the default city centre - allow location for exact results</string>
+    <string name="cached_places">Offline - showing saved results.</string>
+    <string name="action_navigate">Navigate</string>
+    <string name="action_save">Save</string>
+
+    <!-- Detail -->
+    <string name="title_place">Place details</string>
+    <string name="action_call">Call</string>
+    <string name="action_open_maps">Open in Maps app</string>
+    <string name="action_share">Share</string>
+    <string name="action_navigate_locus">Navigate in LOCUS</string>
+    <string name="action_save_place">Save place</string>
+
+    <!-- Navigation -->
+    <string name="hint_search_dest">Where to?</string>
+    <string name="mode_walk">Walk</string>
+    <string name="mode_cycle">Cycle</string>
+    <string name="mode_car">Car</string>
+    <string name="cond_rain">Rain</string>
+    <string name="cond_traffic">Traffic jam</string>
+    <string name="live_gps">Live GPS tracking</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_external">Maps app</string>
+    <string name="action_my_location">My location</string>
+    <string name="action_history">Search history</string>
+    <string name="action_report_hazard">Report hazard</string>
+    <string name="route_hint">Tap the map or search to choose a destination. Long-press for more options.</string>
+    <string name="finding_route">Finding the best route...</string>
+    <string name="loading_roads">Loading roads around you...</string>
+    <string name="arrived">You have arrived</string>
+    <string name="off_route">Off route - recalculating...</string>
+
+    <!-- Community -->
+    <string name="title_community">Community Assistance</string>
+    <string name="filter_all">All</string>
+    <string name="no_requests">No requests yet. Tap + to create one.</string>
+    <string name="title_new_request">New request</string>
+    <string name="hint_type">Request type</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_description">Details (blood group, quantity, place...)</string>
+    <string name="hint_contact">Contact phone</string>
+    <string name="attach_location">Attach my current location</string>
+    <string name="action_submit">Submit request</string>
+
+    <!-- Saved -->
+    <string name="title_saved">Saved Places</string>
+    <string name="no_saved">Nothing saved yet. Star a place in Explore.</string>
+
+    <!-- Lifecycle / network lab -->
+    <string name="title_lifecycle">Activity lifecycle log</string>
+    <string name="title_network_lab">Network lab</string>
+    <string name="action_send">Send request</string>
+
+    <!-- Notification channels -->
+    <string name="ch_hazard">Road hazards</string>
+    <string name="ch_tracking">Live tracking</string>
+    <string name="ch_community">Community requests</string>
+    <string name="tracking_title">LOCUS is tracking your location</string>
+    <string name="tracking_text">Live GPS is on for navigation</string>
+</resources>

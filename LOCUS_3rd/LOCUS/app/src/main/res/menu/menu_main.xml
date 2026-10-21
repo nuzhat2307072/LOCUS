@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/menu_logout"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_lock"
+        android:title="@string/menu_lock"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_lifecycle"
+        android:title="@string/menu_lifecycle"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_network_lab"
+        android:title="@string/menu_network_lab"
+        app:showAsAction="never" />
+</menu>
