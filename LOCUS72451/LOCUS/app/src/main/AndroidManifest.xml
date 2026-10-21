@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Networking -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Location (runtime permissions) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Foreground service + notifications -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <application
+        android:name=".LocusApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LOCUS"
+        android:usesCleartextTraffic="false">
+
+        <!-- Launcher: Splash -> Login/Register -> Main dashboard -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LOCUS.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.RegisterActivity" android:exported="false" android:parentActivityName=".ui.LoginActivity" />
+        <activity android:name=".ui.MainActivity" android:exported="false" />
+        <activity android:name=".ui.ExploreActivity" android:exported="false" android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.PlaceDetailActivity" android:exported="false" android:parentActivityName=".ui.ExploreActivity" />
+        <!-- configChanges: rotating the phone must not rebuild the map and throw the route away -->
+        <activity
+            android:name=".ui.NavigationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:exported="false"
+            android:parentActivityName=".ui.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ui.CommunityActivity" android:exported="false" android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.CreateRequestActivity" android:exported="false" android:parentActivityName=".ui.CommunityActivity" />
+        <activity android:name=".ui.SavedPlacesActivity" android:exported="false" android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.LifecycleLogActivity" android:exported="false" android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.NetworkLabActivity" android:exported="false" android:parentActivityName=".ui.MainActivity" />
+
+        <!-- Foreground service that streams GPS updates while tracking is on -->
+        <service
+            android:name=".service.LocationTrackingService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <!-- Custom broadcast: a road hazard was reported -->
+        <receiver
+            android:name=".receiver.HazardAlertReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.locus.app.ACTION_HAZARD_ADDED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Content provider exposing the Saved Places table -->
+        <provider
+            android:name=".data.provider.FavoritesProvider"
+            android:authorities="com.locus.app.provider"
+            android:exported="false" />
+    </application>
+</manifest>

@@ -1,0 +1,23 @@
+rules_version = '2';
+// Cloud Firestore security rules for LOCUS (Firebase console -> Firestore -> Rules)
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Community Assistance requests (blood, volunteer, disaster aid, ...)
+    match /requests/{requestId} {
+      // any signed-in user can read
+      allow read: if request.auth != null;
+
+      // create: must be signed in and must own the document
+      allow create: if request.auth != null
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.title is string
+                    && request.resource.data.title.size() >= 3
+                    && request.resource.data.title.size() <= 120;
+
+      // update / delete: only the owner
+      allow update, delete: if request.auth != null
+                            && resource.data.ownerUid == request.auth.uid;
+    }
+  }
+}
