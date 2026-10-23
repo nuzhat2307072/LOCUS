@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="locus_primary">#00695C</color>
+    <color name="locus_primary_dark">#004D40</color>
+    <color name="locus_primary_light">#B2DFDB</color>
+    <color name="locus_accent">#FF8F00</color>
+    <color name="locus_background">#F4F7F7</color>
+    <color name="locus_surface">#FFFFFF</color>
+    <color name="locus_text">#1B2B2A</color>
+    <color name="locus_text_secondary">#5F7371</color>
+    <color name="locus_danger">#C62828</color>
+    <color name="locus_ok">#2E7D32</color>
+    <color name="ic_launcher_background">#00695C</color>
+    <color name="route_walk">#2E7D32</color>
+    <color name="route_cycle">#6A1B9A</color>
+    <color name="route_car">#1565C0</color>
+    <color name="traffic_free">#2E7D32</color>
+    <color name="traffic_moderate">#F9A825</color>
+    <color name="traffic_heavy">#D32F2F</color>
+    <color name="route_casing">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

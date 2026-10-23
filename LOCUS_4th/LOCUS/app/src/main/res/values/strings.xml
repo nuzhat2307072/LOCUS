@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LOCUS</string>
+    <string name="tagline">Navigate smart. Help your community.</string>
+
+    <!-- Auth -->
+    <string name="login_title">Welcome back</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Full name</string>
+    <string name="hint_confirm">Confirm password</string>
+    <string name="action_login">Log in</string>
+    <string name="action_register">Create account</string>
+    <string name="action_biometric">Unlock with fingerprint or screen lock</string>
+    <string name="biometric_title">Unlock LOCUS</string>
+    <string name="biometric_subtitle">Confirm it is you</string>
+    <string name="link_switch_account">Not you? Use another account</string>
+    <string name="login_title_new">Sign in to LOCUS</string>
+    <string name="welcome_back_user">Welcome back, %1$s</string>
+    <string name="unlock_subtitle">LOCUS is locked. Enter your password to continue.</string>
+    <string name="password_rules">At least 8 characters, with letters and numbers</string>
+    <string name="logout_title">Log out?</string>
+    <string name="logout_message">You will have to sign in again with your password.</string>
+    <string name="menu_lock">Lock app</string>
+    <string name="signed_in_as">Signed in as %1$s</string>
+    <string name="link_register">New here? Create an account</string>
+    <string name="link_forgot">Forgot password?</string>
+    <string name="register_title">Create your account</string>
+    <string name="firebase_missing">Cloud sync is off (google-services.json missing). Your account is stored securely on this phone only.</string>
+
+    <!-- Dashboard -->
+    <string name="title_dashboard">LOCUS</string>
+    <string name="greeting">Hello, %1$s</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline - showing saved data</string>
+    <string name="card_explore">Explore Places</string>
+    <string name="card_explore_sub">Search anything - find who offers it near you</string>
+    <string name="card_navigate">Smart Navigation</string>
+    <string name="card_navigate_sub">Fastest route on real roads, hazards and automatic rerouting</string>
+    <string name="card_community">Community Assistance</string>
+    <string name="card_community_sub">Blood donation, volunteers, disaster aid</string>
+    <string name="card_saved">Saved Places</string>
+    <string name="card_saved_sub">Your favourites (SQLite + Content Provider)</string>
+    <string name="menu_lifecycle">Lifecycle log</string>
+    <string name="menu_network_lab">Network lab (REST)</string>
+    <string name="menu_logout">Log out</string>
+
+    <!-- Explore -->
+    <string name="title_explore">Explore Places</string>
+    <string name="hint_search_places">Search anything: pizza, plumber, laptop repair...</string>
+    <string name="explore_hint">Type what you need - a food, a shop, a service - and LOCUS shows the places near you that offer it.</string>
+    <string name="explore_nothing">Nothing found for \"%1$s\" nearby. Try another word, or a more general one (for example \"clinic\" instead of a doctor\'s name).</string>
+    <string name="explore_clear">Clear</string>
+    <string name="explore_recent">Recent searches</string>
+    <string name="area_gps">Near your location</string>
+    <string name="area_last">Near your last known position</string>
+    <string name="area_default">Near the default city centre - allow location for exact results</string>
+    <string name="cached_places">Offline - showing saved results.</string>
+    <string name="action_navigate">Navigate</string>
+    <string name="action_save">Save</string>
+
+    <!-- Detail -->
+    <string name="title_place">Place details</string>
+    <string name="action_call">Call</string>
+    <string name="action_open_maps">Open in Maps app</string>
+    <string name="action_share">Share</string>
+    <string name="action_navigate_locus">Navigate in LOCUS</string>
+    <string name="action_save_place">Save place</string>
+
+    <!-- Navigation -->
+    <string name="hint_search_dest">Where to?</string>
+    <string name="mode_walk">Walk</string>
+    <string name="mode_cycle">Cycle</string>
+    <string name="mode_car">Car</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_external">Maps app</string>
+    <string name="action_my_location">My location</string>
+    <string name="action_history">Search history</string>
+    <string name="action_report_hazard">Report hazard</string>
+
+    <!-- Navigation (all text shown by the Navigation screen) -->
+    <string name="back">Back</string>
+    <string name="route_hint">Tap the map or search to choose a destination. Long-press for more options.</string>
+    <string name="finding_route">Finding the best route...</string>
+    <string name="loading_roads">Loading roads around you...</string>
+    <string name="arrived">You have arrived</string>
+    <string name="off_route">Off route - recalculating...</string>
+    <string name="tracking_text">Navigation is running</string>
+    <string name="start_navigation">Start</string>
+    <string name="end_navigation">End</string>
+    <string name="end_navigation_title">End navigation?</string>
+    <string name="end_navigation_message">Your route will be cleared.</string>
+    <string name="keep_going">Keep going</string>
+
+    <string name="weather_clear">Weather: clear</string>
+    <string name="weather_rain">Weather: raining</string>
+    <string name="weather_heavy_rain">Weather: heavy rain</string>
+    <string name="weather_unknown">Weather: checking...</string>
+    <string name="traffic_light">Traffic: light</string>
+    <string name="traffic_moderate">Traffic: moderate</string>
+    <string name="traffic_heavy">Traffic: heavy</string>
+
+    <string name="gps_searching">Looking for your location...</string>
+    <string name="gps_accuracy">Location accurate to about %1$d m</string>
+    <string name="gps_off">Location is off. Tap to turn it on.</string>
+    <string name="gps_no_permission">Location permission is needed. Tap to allow.</string>
+    <string name="gps_last_known">No GPS signal yet - using your last known position</string>
+
+    <string name="route_fastest">Fastest</string>
+    <string name="route_number">Route %1$d</string>
+    <string name="route_chip">%1$s  -  %2$s</string>
+    <string name="route_summary">%1$s  -  %2$s</string>
+    <string name="route_arrive_at">Arrive %1$s</string>
+    <string name="route_traffic_none">No major traffic</string>
+    <string name="route_traffic_delay">Traffic adds about %1$s</string>
+    <string name="route_traffic_heavy_part">Heavy traffic on %1$s of this route</string>
+    <string name="route_rain_slows">Rain slows the trip</string>
+    <plurals name="avoiding_hazards">
+        <item quantity="one">avoiding %1$d hazard</item>
+        <item quantity="other">avoiding %1$d hazards</item>
+    </plurals>
+    <string name="long_trip_main_roads">Long trip - main roads, traffic estimated from the time of day</string>
+    <string name="long_trip_driving">Long trip - showing the driving route</string>
+    <string name="err_no_road">No road for %1$s found near the start or destination</string>
+    <string name="err_no_route">No %1$s route available</string>
+    <string name="err_roads_closed">Roads may be closed by reported hazards</string>
+    <string name="err_already_there">You are already at the destination</string>
+    <string name="err_roads_load">Could not load roads</string>
+    <string name="err_route_failed">Could not find a route</string>
+    <string name="retry">Retry</string>
+    <string name="type_place_first">Type a place name first</string>
+    <string name="nothing_found_for">Nothing found for \"%1$s\"</string>
+    <string name="dropped_pin">Dropped pin</string>
+    <string name="destination">Destination</string>
+    <string name="start_point">Start</string>
+    <string name="you_are_here">You are here</string>
+    <string name="choose_destination_first">Choose a destination first</string>
+    <string name="menu_go_here">Go here</string>
+    <string name="menu_start_here">Start from here</string>
+    <string name="menu_report_here">Report a hazard here</string>
+    <string name="hazard_what_is_here">What is here?</string>
+    <string name="hazard_closes_road">%1$s  (closes the road)</string>
+    <string name="hazard_slows_traffic">%1$s  (slows traffic)</string>
+    <string name="hazard_reported">%1$s reported</string>
+    <string name="hazard_on_route">%1$s on your route - recalculating...</string>
+    <string name="rerouted_around">Rerouted around the hazard (%1$s)</string>
+    <string name="hazard_details">Radius: %1$d m\nEffect: %2$s\nReported: %3$s%4$s</string>
+    <string name="effect_closed">road closed</string>
+    <string name="effect_slower">slower travel</string>
+    <string name="by_you">" (by you)"</string>
+    <string name="remove_hazard">Remove hazard</string>
+
+    <!-- Turn-by-turn -->
+    <string name="turn_depart">Head out</string>
+    <string name="turn_straight">Continue straight</string>
+    <string name="turn_slight_left">Bear left</string>
+    <string name="turn_left">Turn left</string>
+    <string name="turn_sharp_left">Turn sharp left</string>
+    <string name="turn_slight_right">Bear right</string>
+    <string name="turn_right">Turn right</string>
+    <string name="turn_sharp_right">Turn sharp right</string>
+    <string name="turn_uturn">Make a U-turn</string>
+    <string name="turn_arrive">Arrive at your destination</string>
+    <string name="turn_with_street">%1$s onto %2$s</string>
+    <string name="turn_in_distance">In %1$s</string>
+    <string name="remaining_left">%1$s left</string>
+
+    <!-- Units -->
+    <string name="unit_m">%1$d m</string>
+    <string name="unit_km">%1$s km</string>
+    <string name="unit_min">%1$d min</string>
+    <string name="unit_h_min">%1$d h %2$d min</string>
+    <string name="less_than_min">&lt; 1 min</string>
+
+    <!-- Hazards and request types -->
+    <string name="hazard_road_closed">Road closed</string>
+    <string name="hazard_flood">Flooded road</string>
+    <string name="hazard_landslide">Landslide / fallen tree</string>
+    <string name="hazard_accident">Accident</string>
+    <string name="hazard_construction">Construction</string>
+    <string name="hazard_traffic_jam">Heavy traffic jam</string>
+    <string name="req_blood">Blood donation</string>
+    <string name="req_volunteer">Volunteer</string>
+    <string name="req_disaster">Disaster aid</string>
+    <string name="req_donation">Donation</string>
+    <string name="req_travel">Travel / delivery</string>
+    <string name="req_trekking">Trekking</string>
+
+    <!-- Community -->
+    <string name="title_community">Community Assistance</string>
+    <string name="filter_all">All</string>
+    <string name="no_requests">No requests yet. Tap + to create one.</string>
+    <string name="title_new_request">New request</string>
+    <string name="hint_type">Request type</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_description">Details (blood group, quantity, place...)</string>
+    <string name="hint_contact">Contact phone</string>
+    <string name="attach_location">Attach my current location</string>
+    <string name="action_submit">Submit request</string>
+
+    <!-- Saved -->
+    <string name="title_saved">Saved Places</string>
+    <string name="no_saved">Nothing saved yet. Star a place in Explore.</string>
+
+    <!-- Lifecycle / network lab -->
+    <string name="title_lifecycle">Activity lifecycle log</string>
+    <string name="title_network_lab">Network lab</string>
+    <string name="action_send">Send request</string>
+
+    <!-- Notification channels -->
+    <string name="ch_hazard">Road hazards</string>
+    <string name="ch_tracking">Live tracking</string>
+    <string name="ch_community">Community requests</string>
+    <string name="tracking_title">LOCUS is tracking your location</string>
+
+    <!-- Language -->
+    <string name="menu_language">Language</string>
+    <string name="language_title">Choose language</string>
+    <string name="language_english">English</string>
+    <string name="language_bangla">বাংলা (Bangla)</string>
+    <string name="language_hindi">हिन्दी (Hindi)</string>
+
+    <!-- Auth messages -->
+    <string name="err_enter_name">Enter your name</string>
+    <string name="err_valid_email">Enter a valid e-mail address</string>
+    <string name="err_enter_password">Enter your password</string>
+    <string name="err_passwords_mismatch">Passwords do not match</string>
+    <string name="err_email_exists">An account with this e-mail already exists</string>
+    <string name="err_email_exists_local">An account with this e-mail already exists on this phone</string>
+    <string name="err_weak_password">Password is too weak</string>
+    <string name="err_no_internet">No internet connection</string>
+    <string name="err_registration_failed">Registration failed: %1$s</string>
+    <string name="msg_account_created">Account created. We sent a verification e-mail to %1$s</string>
+    <string name="err_too_many_attempts">Too many attempts. Please wait a few minutes.</string>
+    <plurals name="err_wrong_login">
+        <item quantity="one">Wrong e-mail or password - %1$d attempt left</item>
+        <item quantity="other">Wrong e-mail or password - %1$d attempts left</item>
+    </plurals>
+    <string name="lock_message">Too many wrong passwords. Try again in %1$d:%2$02d</string>
+    <string name="err_enter_email_first">Enter your e-mail first</string>
+    <string name="msg_reset_needs_firebase">Password reset by e-mail needs Firebase (see README).</string>
+    <string name="msg_reset_sent">Reset link sent to %1$s</string>
+    <string name="msg_reset_failed">Could not send: %1$s</string>
+    <string name="password_strength">Strength: %1$s</string>
+    <string name="strength_weak">Weak</string>
+    <string name="strength_fair">Fair</string>
+    <string name="strength_good">Good</string>
+    <string name="strength_strong">Strong</string>
+    <string name="pw_too_short">Use at least %1$d characters</string>
+    <string name="pw_mix">Mix letters and numbers</string>
+    <string name="pw_common">This password is too common</string>
+    <string name="pw_has_email">Do not use your e-mail in the password</string>
+    <string name="pw_repeat">Do not repeat one character</string>
+
+    <!-- Place lists and details -->
+    <string name="place_generic">Place</string>
+    <string name="place_meta">%1$s  -  %2$s</string>
+    <string name="detail_distance">Distance: %1$s</string>
+    <string name="detail_phone">Phone: %1$s</string>
+    <string name="detail_address">Address: %1$s</string>
+    <string name="detail_hours">Hours: %1$s</string>
+    <string name="times_line">Walk %1$s   Bike %2$s   Car %3$s</string>
+    <string name="saved_toast">Saved to Saved Places</string>
+    <string name="no_phone">No phone number listed</string>
+    <string name="share_place">Share place</string>
+    <string name="no_app_found">No app found to handle this action</string>
+    <string name="note_hint">Note (e.g. open late, good coffee)</string>
+    <string name="no_note">No note</string>
+
+    <!-- Community -->
+    <string name="request_meta">By %1$s  -  %2$s  -  %3$s%4$s</string>
+    <string name="status_fulfilled">Fulfilled</string>
+    <string name="status_open">Open</string>
+    <string name="waiting_sync">"  -  waiting to sync"</string>
+    <string name="request_details">%1$s\n\n%2$s\n\nContact: %3$s\nPosted by %4$s</string>
+    <string name="request_share_text">[%1$s] %2$s\n%3$s\nContact: %4$s</string>
+    <string name="share_request">Share request</string>
+    <string name="only_owner">Only the person who posted this can change it</string>
+    <string name="action_reopen">Re-open request</string>
+    <string name="action_mark_done">Mark as fulfilled</string>
+    <string name="action_delete_request">Delete request</string>
+    <string name="action_delete">Delete</string>
+    <string name="delete_confirm">Delete this request for everyone?</string>
+    <string name="request_posted">Request posted</string>
+    <string name="request_saved_local">Request saved on this phone (offline / guest mode)</string>
+    <string name="err_title_short">Title must be at least 3 characters</string>
+    <string name="err_details_missing">Add a few details</string>
+    <string name="err_phone_invalid">Enter a valid phone number</string>
+
+    <!-- Notifications and system events -->
+    <string name="hazard_alert_title">Road hazard reported</string>
+    <string name="hazard_alert_text">%1$s reported near %2$s, %3$s. Open Smart Navigation to reroute.</string>
+    <string name="sys_airplane_on">Airplane mode ON - LOCUS switches to offline data</string>
+    <string name="sys_airplane_off">Airplane mode OFF - back online</string>
+    <string name="sys_charger">Charger connected - good time for live GPS tracking</string>
+    <string name="sys_battery_low">Battery low - consider turning off live GPS tracking</string>
+
+    <!-- Network errors -->
+    <string name="net_no_connection">No internet connection (or the server is unreachable).</string>
+    <string name="net_timeout">The server took too long to respond.</string>
+    <string name="net_busy">The map server is busy right now. Pull down to try again in a moment.</string>
+    <string name="type_two_letters">Type at least 2 letters</string>
+
+    <!-- Place categories (shown in the app language; unknown ones stay as OpenStreetMap names them) -->
+    <string name="cat_place">Place</string>
+    <string name="cat_restaurant">Restaurant</string>
+    <string name="cat_fast_food">Fast food</string>
+    <string name="cat_food_court">Food court</string>
+    <string name="cat_cafe">Cafe</string>
+    <string name="cat_ice_cream">Ice cream</string>
+    <string name="cat_bakery">Bakery</string>
+    <string name="cat_pharmacy">Pharmacy</string>
+    <string name="cat_hospital">Hospital</string>
+    <string name="cat_clinic">Clinic</string>
+    <string name="cat_doctors">Doctor</string>
+    <string name="cat_doctor">Doctor</string>
+    <string name="cat_dentist">Dentist</string>
+    <string name="cat_laboratory">Laboratory</string>
+    <string name="cat_atm">ATM</string>
+    <string name="cat_bank">Bank</string>
+    <string name="cat_bureau_de_change">Currency exchange</string>
+    <string name="cat_marketplace">Market</string>
+    <string name="cat_supermarket">Supermarket</string>
+    <string name="cat_convenience">Convenience store</string>
+    <string name="cat_greengrocer">Greengrocer</string>
+    <string name="cat_butcher">Butcher</string>
+    <string name="cat_mall">Shopping mall</string>
+    <string name="cat_department_store">Department store</string>
+    <string name="cat_clothes">Clothes shop</string>
+    <string name="cat_shoes">Shoe shop</string>
+    <string name="cat_electronics">Electronics shop</string>
+    <string name="cat_mobile_phone">Mobile phone shop</string>
+    <string name="cat_hardware">Hardware shop</string>
+    <string name="cat_furniture">Furniture shop</string>
+    <string name="cat_jewelry">Jewellery shop</string>
+    <string name="cat_books">Book shop</string>
+    <string name="cat_stationery">Stationery</string>
+    <string name="cat_florist">Florist</string>
+    <string name="cat_optician">Optician</string>
+    <string name="cat_pet">Pet shop</string>
+    <string name="cat_veterinary">Veterinary</string>
+    <string name="cat_place_of_worship">Place of worship</string>
+    <string name="cat_fuel">Fuel station</string>
+    <string name="cat_charging_station">Charging station</string>
+    <string name="cat_parking">Parking</string>
+    <string name="cat_car_repair">Car repair</string>
+    <string name="cat_car_wash">Car wash</string>
+    <string name="cat_car_rental">Car rental</string>
+    <string name="cat_bus_station">Bus station</string>
+    <string name="cat_ferry_terminal">Ferry terminal</string>
+    <string name="cat_school">School</string>
+    <string name="cat_kindergarten">Kindergarten</string>
+    <string name="cat_college">College</string>
+    <string name="cat_university">University</string>
+    <string name="cat_library">Library</string>
+    <string name="cat_hairdresser">Hairdresser</string>
+    <string name="cat_beauty">Beauty salon</string>
+    <string name="cat_massage">Massage</string>
+    <string name="cat_spa">Spa</string>
+    <string name="cat_police">Police station</string>
+    <string name="cat_fire_station">Fire station</string>
+    <string name="cat_post_office">Post office</string>
+    <string name="cat_post_box">Post box</string>
+    <string name="cat_townhall">Town hall</string>
+    <string name="cat_courthouse">Courthouse</string>
+    <string name="cat_laundry">Laundry</string>
+    <string name="cat_dry_cleaning">Dry cleaning</string>
+    <string name="cat_cinema">Cinema</string>
+    <string name="cat_theatre">Theatre</string>
+    <string name="cat_toilets">Toilets</string>
+    <string name="cat_drinking_water">Drinking water</string>
+    <string name="cat_internet_cafe">Internet cafe</string>
+    <string name="cat_hotel">Hotel</string>
+    <string name="cat_guest_house">Guest house</string>
+    <string name="cat_hostel">Hostel</string>
+    <string name="cat_park">Park</string>
+    <string name="cat_gym">Gym</string>
+    <string name="cat_fitness_centre">Fitness centre</string>
+    <string name="cat_sports_centre">Sports centre</string>
+    <string name="cat_electrician">Electrician</string>
+    <string name="cat_plumber">Plumber</string>
+    <string name="cat_carpenter">Carpenter</string>
+    <string name="cat_tailor">Tailor</string>
+    <string name="cat_shoemaker">Shoemaker</string>
+    <string name="cat_locksmith">Locksmith</string>
+</resources>
