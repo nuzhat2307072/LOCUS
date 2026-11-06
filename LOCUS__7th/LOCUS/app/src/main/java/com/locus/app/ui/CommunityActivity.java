@@ -104,7 +104,10 @@ public class CommunityActivity extends AppCompatActivity {
     }
 
     private void updateSyncBanner() {
-        int text;
+        if (syncState == CommunitySync.State.LOCAL_ONLY) {
+            b.tvSync.setVisibility(View.GONE);
+            return;
+        }
         boolean good = false;
         switch (syncState) {
             case LIVE:
@@ -129,8 +132,8 @@ public class CommunityActivity extends AppCompatActivity {
                 b.tvSync.setText(R.string.sync_error);
                 break;
             default:
-                b.tvSync.setText(R.string.sync_local_only);
-                break;
+                b.tvSync.setVisibility(View.GONE);
+                return;
         }
         b.tvSync.setBackgroundColor(androidx.core.content.ContextCompat.getColor(this,
                 good ? R.color.sync_ok_bg : R.color.sync_warn_bg));
@@ -138,8 +141,7 @@ public class CommunityActivity extends AppCompatActivity {
     }
 
     private void onBannerTap() {
-        if (syncState == CommunitySync.State.LOCAL_ONLY || syncState == CommunitySync.State.NO_PERMISSION
-                || syncState == CommunitySync.State.NO_DATABASE) {
+        if (syncState == CommunitySync.State.NO_PERMISSION || syncState == CommunitySync.State.NO_DATABASE) {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.cloud_setup_title)
                     .setMessage(R.string.cloud_setup_message)

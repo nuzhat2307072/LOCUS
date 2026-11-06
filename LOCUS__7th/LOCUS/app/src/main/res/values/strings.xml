@@ -430,7 +430,6 @@
     <string name="sync_live">Shared with everyone using LOCUS - updated %1$s</string>
     <string name="sync_connecting">Connecting to the shared board...</string>
     <string name="sync_offline">Offline - showing saved posts. Your posts upload when you are back online.</string>
-    <string name="sync_local_only">Only on this phone: cloud sharing is not set up, so other users cannot see these posts. Tap for the steps.</string>
     <string name="sync_no_permission">The shared board refused access (its rules were not published). Tap for the steps.</string>
     <string name="sync_no_database">The shared database has not been created yet. Tap for the steps.</string>
     <string name="sync_error">Could not reach the shared board. It will keep trying.</string>

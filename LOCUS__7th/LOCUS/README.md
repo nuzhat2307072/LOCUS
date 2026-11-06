@@ -179,8 +179,7 @@ assistant - have a native speaker read them before a formal submission.
 - Posts written offline, or before the cloud was connected, upload automatically later (WorkManager) and are
   re-labelled with your cloud account so the rules accept them.
 - The banner at the top of the Community screen is always honest: *Shared with everyone using LOCUS - updated 14:05*
-  (green), *Offline*, *Only on this phone: cloud sharing is not set up* (tap for the steps), *rules not published*,
-  or *database not created*. Without `google-services.json` the app still works, but posts stay on one phone - there is
+  (green), *Offline*, *rules not published*, or *database not created*. Without `google-services.json` the app still works, but posts stay on one phone - there is
   no way to share between phones without a cloud service.
 - Filter chips: All, **My posts**, and each request type. Your own posts say "You".
 - Only the owner can mark a post fulfilled or delete it (Firestore rules, `firestore.rules`).
