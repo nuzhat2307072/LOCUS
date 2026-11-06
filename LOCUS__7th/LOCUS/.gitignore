@@ -1,0 +1,12 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+# Firebase config contains your project keys - keep it out of git
+/app/google-services.json
