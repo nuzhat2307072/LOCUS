@@ -1,0 +1,41 @@
+{
+  "rules": {
+    "hazards": {
+      ".read": "auth != null",
+      "$hazardId": {
+        ".write": "auth != null && (!newData.exists() || !data.exists() || data.child('reporterUid').val() === auth.uid)",
+        ".validate": "!newData.exists() || newData.hasChildren(['type', 'lat', 'lon', 'createdAt', 'reporterUid'])",
+        "votes": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid",
+            ".validate": "newData.val() === 'still' || newData.val() === 'cleared'"
+          }
+        },
+        "lastConfirmedAt": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber()"
+        }
+      }
+    },
+    "reputation": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && $uid !== auth.uid && newData.isNumber() && (newData.val() - (data.exists() ? data.val() : 0)) <= 2 && (newData.val() - (data.exists() ? data.val() : 0)) >= -2",
+        ".validate": "newData.isNumber()"
+      }
+    },
+    "shares": {
+      "$code": {
+        ".read": "auth != null && (data.child('ownerUid').val() === auth.uid || data.child('viewers').child(auth.uid).exists())",
+        ".write": "auth != null && ((!data.exists() && newData.child('ownerUid').val() === auth.uid) || data.child('ownerUid').val() === auth.uid)",
+        ".validate": "!newData.exists() || newData.hasChildren(['ownerUid', 'ownerName', 'expiresAt'])",
+        "viewers": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid && root.child('shares').child($code).child('active').val() === true",
+            ".validate": "newData.hasChildren(['name', 'joinedAt'])"
+          }
+        }
+      }
+    }
+  }
+}
