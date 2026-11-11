@@ -1,0 +1,114 @@
+{
+  "rules": {
+    "hazards": {
+      ".read": "auth != null",
+      "$hazardId": {
+        ".write": "auth != null && (!newData.exists() || !data.exists() || data.child('reporterUid').val() === auth.uid)",
+        ".validate": "!newData.exists() || newData.hasChildren(['type', 'lat', 'lon', 'createdAt', 'reporterUid'])",
+        "votes": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid",
+            ".validate": "newData.val() === 'still' || newData.val() === 'cleared'"
+          }
+        },
+        "voteDist": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid",
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000"
+          }
+        },
+        "lastConfirmedAt": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber()"
+        }
+      }
+    },
+    "reputation": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && $uid !== auth.uid && newData.isNumber() && (newData.val() - (data.exists() ? data.val() : 0)) <= 2 && (newData.val() - (data.exists() ? data.val() : 0)) >= -2",
+        ".validate": "newData.isNumber()"
+      }
+    },
+    "shares": {
+      "$code": {
+        ".read": "auth != null && (data.child('ownerUid').val() === auth.uid || data.child('viewers').child(auth.uid).exists())",
+        ".write": "auth != null && ((!data.exists() && newData.child('ownerUid').val() === auth.uid) || data.child('ownerUid').val() === auth.uid)",
+        ".validate": "!newData.exists() || newData.hasChildren(['ownerUid', 'ownerName', 'expiresAt'])",
+        "viewers": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid && root.child('shares').child($code).child('active').val() === true",
+            ".validate": "newData.hasChildren(['name', 'joinedAt'])"
+          }
+        }
+      }
+    },
+    "chats": {
+      "$chatId": {
+        ".read": "auth != null && data.child('members').child(auth.uid).val() === true",
+        ".write": "auth != null && !data.exists() && newData.child('helperUid').val() === auth.uid && newData.child('requesterUid').val() !== auth.uid && newData.child('members').child(auth.uid).val() === true && newData.child('members').child(newData.child('requesterUid').val()).val() === true",
+        ".validate": "!newData.exists() || newData.hasChildren(['requestId', 'requesterUid', 'helperUid', 'members', 'createdAt'])",
+        "members": {
+          "$m": {
+            ".validate": "newData.val() === true && ($m === newData.parent().parent().child('requesterUid').val() || $m === newData.parent().parent().child('helperUid').val())"
+          }
+        },
+        "closed": {
+          ".write": "auth != null && root.child('chats').child($chatId).child('requesterUid').val() === auth.uid",
+          ".validate": "newData.isBoolean()"
+        },
+        "messages": {
+          ".indexOn": ["at"],
+          "$mid": {
+            ".write": "auth != null && root.child('chats').child($chatId).child('members').child(auth.uid).val() === true && ((!data.exists() && newData.child('from').val() === auth.uid && root.child('chats').child($chatId).child('closed').val() !== true && !root.child('blocks').child(root.child('chats').child($chatId).child('requesterUid').val()).child(auth.uid).exists() && !root.child('blocks').child(root.child('chats').child($chatId).child('helperUid').val()).child(auth.uid).exists()) || (data.exists() && !newData.exists() && data.child('from').val() === auth.uid))",
+            ".validate": "!newData.exists() || (newData.hasChildren(['from', 'text', 'at']) && newData.child('text').isString() && newData.child('text').val().length <= 1000 && (newData.child('text').val().length > 0 || newData.child('hasImg').val() === true || newData.child('img').isString()) && (!newData.child('hasImg').exists() || newData.child('hasImg').isBoolean()) && (!newData.child('img').exists() || (newData.child('img').isString() && newData.child('img').val().length <= 160000)))"
+          }
+        },
+        "seen": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid && root.child('chats').child($chatId).child('members').child(auth.uid).val() === true",
+            ".validate": "newData.isNumber()"
+          }
+        },
+        "typing": {
+          "$uid": {
+            ".write": "auth != null && $uid === auth.uid && root.child('chats').child($chatId).child('members').child(auth.uid).val() === true",
+            ".validate": "newData.isBoolean()"
+          }
+        }
+      }
+    },
+    "chatImages": {
+      "$chatId": {
+        ".read": "auth != null && root.child('chats').child($chatId).child('members').child(auth.uid).val() === true",
+        "$mid": {
+          ".write": "auth != null && root.child('chats').child($chatId).child('members').child(auth.uid).val() === true && ((!data.exists() && newData.exists() && root.child('chats').child($chatId).child('closed').val() !== true) || (data.exists() && !newData.exists() && root.child('chats').child($chatId).child('messages').child($mid).child('from').val() === auth.uid))",
+          ".validate": "newData.isString() && newData.val().length <= 160000"
+        }
+      }
+    },
+    "userChats": {
+      "$uid": {
+        ".read": "auth != null && $uid === auth.uid",
+        "$chatId": {
+          ".write": "auth != null && ($uid === auth.uid || (root.child('chats').child($chatId).child('members').child(auth.uid).val() === true && root.child('chats').child($chatId).child('members').child($uid).val() === true))"
+        }
+      }
+    },
+    "blocks": {
+      "$uid": {
+        ".read": "auth != null && $uid === auth.uid",
+        ".write": "auth != null && $uid === auth.uid",
+        "$other": {
+          ".validate": "newData.isBoolean()"
+        }
+      }
+    },
+    "reports": {
+      "$rid": {
+        ".write": "auth != null && !data.exists() && newData.child('reporter').val() === auth.uid",
+        ".validate": "!newData.exists() || newData.hasChildren(['chatId', 'reporter', 'reported', 'reason', 'at'])"
+      }
+    }
+  }
+}
