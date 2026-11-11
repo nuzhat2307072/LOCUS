@@ -1,0 +1,65 @@
+rules_version = '2';
+// Cloud Firestore security rules for LOCUS
+// Firebase console -> Firestore Database -> Rules -> paste this whole file -> Publish
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Community Assistance board: one document per post, shared by every phone with the app
+    match /requests/{requestId} {
+      // every logged-in user sees every post
+      allow read: if request.auth != null;
+
+      // a new post: signed in, owned by the poster, time stamped by the SERVER, still open, sane sizes
+      allow create: if request.auth != null
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.createdAt == request.time
+                    && request.resource.data.status == 'OPEN'
+                    && request.resource.data.type in ['BLOOD', 'VOLUNTEER', 'DISASTER', 'DONATION', 'TRAVEL', 'TREKKING']
+                    && request.resource.data.title is string
+                    && request.resource.data.title.size() >= 3
+                    && request.resource.data.title.size() <= 120
+                    && request.resource.data.description is string
+                    && request.resource.data.description.size() <= 2000
+                    && request.resource.data.contact is string
+                    && request.resource.data.contact.size() <= 60;
+
+      // the owner may only mark the post done / open again (nobody can rewrite someone else's post)
+      allow update: if request.auth != null
+                    && resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+                    && request.resource.data.status in ['OPEN', 'DONE'];
+
+      // the owner may delete the post
+      allow delete: if request.auth != null
+                    && resource.data.ownerUid == request.auth.uid;
+    }
+
+    // Comments under the posts: one document per comment, shared by every phone with the app
+    match /comments/{commentId} {
+      allow read: if request.auth != null;
+
+      // signed in, written as yourself, time stamped by the SERVER, sane size
+      allow create: if request.auth != null
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.createdAt == request.time
+                    && request.resource.data.requestId is string
+                    && request.resource.data.ownerName is string
+                    && request.resource.data.ownerName.size() <= 60
+                    && request.resource.data.text is string
+                    && (!('parentId' in request.resource.data) || request.resource.data.parentId is string)
+                    && request.resource.data.text.size() >= 1
+                    && request.resource.data.text.size() <= 500;
+
+      // nobody edits a comment; the writer or the owner of the post may delete it
+      allow update: if false;
+      allow delete: if request.auth != null
+                    && (resource.data.ownerUid == request.auth.uid
+                        || get(/databases/$(database)/documents/requests/$(resource.data.requestId)).data.ownerUid == request.auth.uid);
+    }
+
+    // "Check connection" test document: each user can only touch their own
+    match /diagnostics/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}
