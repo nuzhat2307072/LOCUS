@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="locus_primary">#00897B</color>
+    <color name="locus_primary_dark">#80CBC4</color>
+    <color name="locus_primary_light">#1F3B37</color>
+    <color name="locus_status_bar">#00352D</color>
+    <color name="locus_background">#0F1615</color>
+    <color name="locus_surface">#1B2625</color>
+    <color name="locus_text">#E6EFEE</color>
+    <color name="locus_text_secondary">#9FB4B2</color>
+    <color name="locus_danger">#EF5350</color>
+    <color name="locus_ok">#66BB6A</color>
+    <color name="status_open">#66BB6A</color>
+    <color name="status_closed">#EF5350</color>
+    <color name="route_casing">#1B2625</color>
+    <color name="sync_ok_bg">#1E3322</color>
+    <color name="sync_warn_bg">#3A2D14</color>
+</resources>
